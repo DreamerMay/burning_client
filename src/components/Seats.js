@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import axios from 'axios'; // AJAXhelper
-import '../App.css';
+
 
 const SERVER_URL = 'http://localhost:3000/planes.json'
 
 
 class Seats extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
     this.state = {
       seats: [{rows: 'rows', columns: 'columns'}] // request secrets by AJAX;
     };
@@ -15,20 +15,22 @@ class Seats extends Component {
     const seats = () => {
       axios.get(SERVER_URL).then( (results ) => {
         console.log(results);
-        this.setState({ seats: results.data});
+        const flight = results.data.filter((f) => f.id == props.flight_id)[0]
+        // search results for particular flight (const flight = {...})
+        // const seatData = { rows: flight.rows, columns: flight.columns }
+        // this.setState({ seats: flight});
       });
     }
+
+    seats();
   }
 
-  // render() {
-  //   return (
-  //     <ul>
-  //       {this.state.seats.map(rows => <li> {seats.rows}</li>)}
-  //       {this.state.seats.map(columns => <li> {seats.columns}</li>)}
-  //     </ul>
-  //   )
-  // }
+  render() {
+    return (
+    <p>{this.flight}</p>
+    );
+  }
 }
 
 
-export default Seats
+export default Seats;
