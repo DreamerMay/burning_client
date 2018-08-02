@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import jsonp from 'jsonp-es6';
 import axios from 'axios';
 
-const PlaneURL = 'https://####burningairlinesdb.herokuapp.com/flights.json';
+const PlaneURL = 'http://localhost:3000/flights.json';
 
 class SearchForm extends Component{
 
@@ -56,6 +56,7 @@ class FlightsSearch extends Component{
   handleSubmit(event) {
     event.preventDefault();
     axios.get(PlaneURL).then(function (results){
+      console.log(results);
       this.data
       debugger;
 
@@ -80,4 +81,4 @@ class FlightsSearch extends Component{
   }
 }
 
-export default SearchBar;
+export default FlightsSearch;

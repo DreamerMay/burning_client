@@ -9,25 +9,23 @@ class Seats extends Component {
   constructor () {
     super();
     this.state = {
-      seats: [{rows: 'rows', columns: 'columns'}] // request secrets by AJAX;
+      seats: [{rows: 'rows', columns: 'columns'}]
     };
 
     const seats = () => {
       axios.get(SERVER_URL).then( (results ) => {
         console.log(results);
-        this.setState({ seats: results.data});
       });
-    }
+     }
   }
 
-  // render() {
-  //   return (
-  //     <ul>
-  //       {this.state.seats.map(rows => <li> {seats.rows}</li>)}
-  //       {this.state.seats.map(columns => <li> {seats.columns}</li>)}
-  //     </ul>
-  //   )
-  // }
+  render() {
+    return (
+      <ul>
+        <li> </li>
+      </ul>
+    )
+  }
 }
 
 
