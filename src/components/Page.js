@@ -7,15 +7,12 @@ class Page extends Component {
           <div className="container">
 
           <form onSubmit = {this.clicking} className="logout">
-            <div className="flex-header">
-              <div className="flex-1">
+
+              <div className="h2">
                 <p>Search your stupid flight</p>
 <input type="text" className="form-control"/>
               </div>
-              <div className="flex-logout">
-
-              </div>
-            </div>
+          <button className="btn btn-primary">Search</button>
           </form>
 
           </div>
